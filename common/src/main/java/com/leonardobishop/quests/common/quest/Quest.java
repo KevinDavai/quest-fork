@@ -24,6 +24,7 @@ public class Quest implements Comparable<Quest> {
     private boolean permissionRequired;
     private boolean autoStartEnabled;
     private boolean cancellable;
+    private boolean trackable;
     private boolean countsTowardsLimit;
     private Map<String, String> placeholders;
     private String categoryid;
@@ -250,6 +251,13 @@ public class Quest implements Comparable<Quest> {
     }
 
     /**
+     * Get if this quest should be trackable.
+     *
+     * @return boolean
+     */
+    public boolean isTrackable() { return trackable; }
+
+    /**
      * Get whether this quest should count towards the player's total quest limit.
      *
      * @return boolean
@@ -287,6 +295,7 @@ public class Quest implements Comparable<Quest> {
         private boolean permissionRequired = false;
         private boolean autoStartEnabled = false;
         private boolean cancellable = true;
+        private boolean trackable = false;
         private boolean countsTowardsLimit = true;
         private Map<String, String> placeholders = Collections.emptyMap();
         private String categoryid = null;
@@ -370,6 +379,11 @@ public class Quest implements Comparable<Quest> {
             return this;
         }
 
+        public Builder withTrackable(boolean trackable) {
+            this.trackable = trackable;
+            return this;
+        }
+
         public Builder withCountsTowardsLimit(boolean countsTowardsLimit) {
             this.countsTowardsLimit = countsTowardsLimit;
             return this;
@@ -398,6 +412,7 @@ public class Quest implements Comparable<Quest> {
             quest.autoStartEnabled = this.autoStartEnabled;
             quest.countsTowardsLimit = countsTowardsLimit;
             quest.cancellable = this.cancellable;
+            quest.trackable = this.trackable;
             quest.placeholders = this.placeholders;
             quest.categoryid = this.categoryid;
 

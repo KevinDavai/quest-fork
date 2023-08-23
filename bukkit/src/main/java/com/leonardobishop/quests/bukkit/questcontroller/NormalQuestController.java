@@ -100,7 +100,7 @@ public class NormalQuestController implements QuestController {
                 taskProgress.setCompleted(false);
                 taskProgress.setProgress(null);
             }
-            if (config.getBoolean("options.allow-quest-track") && config.getBoolean("options.quest-autotrack")) {
+            if (config.getBoolean("options.allow-quest-track") && config.getBoolean("options.quest-autotrack") && quest.isTrackable()) {
                 qPlayer.trackQuest(quest);
             }
             questProgress.setCompleted(false);

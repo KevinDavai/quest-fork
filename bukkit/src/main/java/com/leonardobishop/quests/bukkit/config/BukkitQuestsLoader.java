@@ -259,6 +259,7 @@ public class BukkitQuestsLoader implements QuestsLoader {
                         boolean permissionRequired = config.getBoolean("options.permission-required", false);
                         boolean autostart = config.getBoolean("options.autostart", false);
                         boolean cancellable = config.getBoolean("options.cancellable", true);
+                        boolean trackable = config.getBoolean("options.trackable", false);
                         boolean countsTowardsLimit = config.getBoolean("options.counts-towards-limit", true);
                         int cooldownTime = config.getInt("options.cooldown.time", 10);
                         int timeLimtTime = config.getInt("options.time-limit.time", 10);
@@ -291,6 +292,7 @@ public class BukkitQuestsLoader implements QuestsLoader {
                                 .withPermissionRequired(permissionRequired)
                                 .withRepeatEnabled(repeatable)
                                 .withCancellable(cancellable)
+                                .withTrackable(trackable)
                                 .withCountsTowardsLimit(countsTowardsLimit)
                                 .withAutoStartEnabled(autostart)
                                 .inCategory(category)
